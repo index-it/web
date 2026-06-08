@@ -1,0 +1,43 @@
+import * as React from 'react'
+import type { IxApiClient } from '#/lib/services/IxApiClient.ts'
+
+export const IxApiClientContext = React.createContext<IxApiClient | undefined>(
+  undefined,
+)
+
+export const useIxApiClient = (ixApiClient?: IxApiClient) => {
+  const client = React.useContext(IxApiClientContext)
+
+  if (ixApiClient) {
+    return ixApiClient
+  }
+
+  if (!client) {
+    throw new Error('No IxApiClient set, use IxApiClientProvider to set one')
+  }
+
+  return client
+}
+
+export type IxApiClientProviderProps = {
+  client: IxApiClient
+  children?: React.ReactNode
+}
+
+export const IxApiClientProvider = ({
+  client,
+  children,
+}: IxApiClientProviderProps): React.JSX.Element => {
+  React.useEffect(() => {
+    console.info('Mounted Index Api client')
+    return () => {
+      console.info('Unmounted Index Api client')
+    }
+  }, [client])
+
+  return (
+    <IxApiClientContext.Provider value={client}>
+      {children}
+    </IxApiClientContext.Provider>
+  )
+}
