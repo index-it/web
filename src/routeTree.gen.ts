@@ -9,38 +9,235 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as UnderConstructionRouteImport } from './routes/under-construction'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as TasksIndexRouteImport } from './routes/tasks/index'
+import { Route as ListsIndexRouteImport } from './routes/lists/index'
+import { Route as ListsList_idRouteImport } from './routes/lists/$list_id'
+import { Route as CallbackEmailVerificationSuccessRouteImport } from './routes/callback/email-verification-success'
+import { Route as CallbackEmailVerificationErrorRouteImport } from './routes/callback/email-verification-error'
+import { Route as AuthWelcomeRouteImport } from './routes/auth/welcome'
+import { Route as AuthVerifyEmailRouteImport } from './routes/auth/verify-email'
+import { Route as AuthResetPasswordRouteImport } from './routes/auth/reset-password'
+import { Route as AuthRegisterRouteImport } from './routes/auth/register'
+import { Route as AuthLoginRouteImport } from './routes/auth/login'
+import { Route as AuthEmailRouteImport } from './routes/auth/email'
+import { Route as CallbackListsAcceptUserInvitationRouteImport } from './routes/callback/lists.accept-user-invitation'
+import { Route as CallbackListsAcceptInviteRouteImport } from './routes/callback/lists.accept-invite'
 
+const UnderConstructionRoute = UnderConstructionRouteImport.update({
+  id: '/under-construction',
+  path: '/under-construction',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const TasksIndexRoute = TasksIndexRouteImport.update({
+  id: '/tasks/',
+  path: '/tasks/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ListsIndexRoute = ListsIndexRouteImport.update({
+  id: '/lists/',
+  path: '/lists/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ListsList_idRoute = ListsList_idRouteImport.update({
+  id: '/lists/$list_id',
+  path: '/lists/$list_id',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CallbackEmailVerificationSuccessRoute =
+  CallbackEmailVerificationSuccessRouteImport.update({
+    id: '/callback/email-verification-success',
+    path: '/callback/email-verification-success',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const CallbackEmailVerificationErrorRoute =
+  CallbackEmailVerificationErrorRouteImport.update({
+    id: '/callback/email-verification-error',
+    path: '/callback/email-verification-error',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AuthWelcomeRoute = AuthWelcomeRouteImport.update({
+  id: '/auth/welcome',
+  path: '/auth/welcome',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthVerifyEmailRoute = AuthVerifyEmailRouteImport.update({
+  id: '/auth/verify-email',
+  path: '/auth/verify-email',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthResetPasswordRoute = AuthResetPasswordRouteImport.update({
+  id: '/auth/reset-password',
+  path: '/auth/reset-password',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthRegisterRoute = AuthRegisterRouteImport.update({
+  id: '/auth/register',
+  path: '/auth/register',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthLoginRoute = AuthLoginRouteImport.update({
+  id: '/auth/login',
+  path: '/auth/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthEmailRoute = AuthEmailRouteImport.update({
+  id: '/auth/email',
+  path: '/auth/email',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CallbackListsAcceptUserInvitationRoute =
+  CallbackListsAcceptUserInvitationRouteImport.update({
+    id: '/callback/lists/accept-user-invitation',
+    path: '/callback/lists/accept-user-invitation',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const CallbackListsAcceptInviteRoute =
+  CallbackListsAcceptInviteRouteImport.update({
+    id: '/callback/lists/accept-invite',
+    path: '/callback/lists/accept-invite',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/under-construction': typeof UnderConstructionRoute
+  '/auth/email': typeof AuthEmailRoute
+  '/auth/login': typeof AuthLoginRoute
+  '/auth/register': typeof AuthRegisterRoute
+  '/auth/reset-password': typeof AuthResetPasswordRoute
+  '/auth/verify-email': typeof AuthVerifyEmailRoute
+  '/auth/welcome': typeof AuthWelcomeRoute
+  '/callback/email-verification-error': typeof CallbackEmailVerificationErrorRoute
+  '/callback/email-verification-success': typeof CallbackEmailVerificationSuccessRoute
+  '/lists/$list_id': typeof ListsList_idRoute
+  '/lists/': typeof ListsIndexRoute
+  '/tasks/': typeof TasksIndexRoute
+  '/callback/lists/accept-invite': typeof CallbackListsAcceptInviteRoute
+  '/callback/lists/accept-user-invitation': typeof CallbackListsAcceptUserInvitationRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/under-construction': typeof UnderConstructionRoute
+  '/auth/email': typeof AuthEmailRoute
+  '/auth/login': typeof AuthLoginRoute
+  '/auth/register': typeof AuthRegisterRoute
+  '/auth/reset-password': typeof AuthResetPasswordRoute
+  '/auth/verify-email': typeof AuthVerifyEmailRoute
+  '/auth/welcome': typeof AuthWelcomeRoute
+  '/callback/email-verification-error': typeof CallbackEmailVerificationErrorRoute
+  '/callback/email-verification-success': typeof CallbackEmailVerificationSuccessRoute
+  '/lists/$list_id': typeof ListsList_idRoute
+  '/lists': typeof ListsIndexRoute
+  '/tasks': typeof TasksIndexRoute
+  '/callback/lists/accept-invite': typeof CallbackListsAcceptInviteRoute
+  '/callback/lists/accept-user-invitation': typeof CallbackListsAcceptUserInvitationRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/under-construction': typeof UnderConstructionRoute
+  '/auth/email': typeof AuthEmailRoute
+  '/auth/login': typeof AuthLoginRoute
+  '/auth/register': typeof AuthRegisterRoute
+  '/auth/reset-password': typeof AuthResetPasswordRoute
+  '/auth/verify-email': typeof AuthVerifyEmailRoute
+  '/auth/welcome': typeof AuthWelcomeRoute
+  '/callback/email-verification-error': typeof CallbackEmailVerificationErrorRoute
+  '/callback/email-verification-success': typeof CallbackEmailVerificationSuccessRoute
+  '/lists/$list_id': typeof ListsList_idRoute
+  '/lists/': typeof ListsIndexRoute
+  '/tasks/': typeof TasksIndexRoute
+  '/callback/lists/accept-invite': typeof CallbackListsAcceptInviteRoute
+  '/callback/lists/accept-user-invitation': typeof CallbackListsAcceptUserInvitationRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/under-construction'
+    | '/auth/email'
+    | '/auth/login'
+    | '/auth/register'
+    | '/auth/reset-password'
+    | '/auth/verify-email'
+    | '/auth/welcome'
+    | '/callback/email-verification-error'
+    | '/callback/email-verification-success'
+    | '/lists/$list_id'
+    | '/lists/'
+    | '/tasks/'
+    | '/callback/lists/accept-invite'
+    | '/callback/lists/accept-user-invitation'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/under-construction'
+    | '/auth/email'
+    | '/auth/login'
+    | '/auth/register'
+    | '/auth/reset-password'
+    | '/auth/verify-email'
+    | '/auth/welcome'
+    | '/callback/email-verification-error'
+    | '/callback/email-verification-success'
+    | '/lists/$list_id'
+    | '/lists'
+    | '/tasks'
+    | '/callback/lists/accept-invite'
+    | '/callback/lists/accept-user-invitation'
+  id:
+    | '__root__'
+    | '/'
+    | '/under-construction'
+    | '/auth/email'
+    | '/auth/login'
+    | '/auth/register'
+    | '/auth/reset-password'
+    | '/auth/verify-email'
+    | '/auth/welcome'
+    | '/callback/email-verification-error'
+    | '/callback/email-verification-success'
+    | '/lists/$list_id'
+    | '/lists/'
+    | '/tasks/'
+    | '/callback/lists/accept-invite'
+    | '/callback/lists/accept-user-invitation'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  UnderConstructionRoute: typeof UnderConstructionRoute
+  AuthEmailRoute: typeof AuthEmailRoute
+  AuthLoginRoute: typeof AuthLoginRoute
+  AuthRegisterRoute: typeof AuthRegisterRoute
+  AuthResetPasswordRoute: typeof AuthResetPasswordRoute
+  AuthVerifyEmailRoute: typeof AuthVerifyEmailRoute
+  AuthWelcomeRoute: typeof AuthWelcomeRoute
+  CallbackEmailVerificationErrorRoute: typeof CallbackEmailVerificationErrorRoute
+  CallbackEmailVerificationSuccessRoute: typeof CallbackEmailVerificationSuccessRoute
+  ListsList_idRoute: typeof ListsList_idRoute
+  ListsIndexRoute: typeof ListsIndexRoute
+  TasksIndexRoute: typeof TasksIndexRoute
+  CallbackListsAcceptInviteRoute: typeof CallbackListsAcceptInviteRoute
+  CallbackListsAcceptUserInvitationRoute: typeof CallbackListsAcceptUserInvitationRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/under-construction': {
+      id: '/under-construction'
+      path: '/under-construction'
+      fullPath: '/under-construction'
+      preLoaderRoute: typeof UnderConstructionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -48,11 +245,117 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/tasks/': {
+      id: '/tasks/'
+      path: '/tasks'
+      fullPath: '/tasks/'
+      preLoaderRoute: typeof TasksIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/lists/': {
+      id: '/lists/'
+      path: '/lists'
+      fullPath: '/lists/'
+      preLoaderRoute: typeof ListsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/lists/$list_id': {
+      id: '/lists/$list_id'
+      path: '/lists/$list_id'
+      fullPath: '/lists/$list_id'
+      preLoaderRoute: typeof ListsList_idRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/callback/email-verification-success': {
+      id: '/callback/email-verification-success'
+      path: '/callback/email-verification-success'
+      fullPath: '/callback/email-verification-success'
+      preLoaderRoute: typeof CallbackEmailVerificationSuccessRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/callback/email-verification-error': {
+      id: '/callback/email-verification-error'
+      path: '/callback/email-verification-error'
+      fullPath: '/callback/email-verification-error'
+      preLoaderRoute: typeof CallbackEmailVerificationErrorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/auth/welcome': {
+      id: '/auth/welcome'
+      path: '/auth/welcome'
+      fullPath: '/auth/welcome'
+      preLoaderRoute: typeof AuthWelcomeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/auth/verify-email': {
+      id: '/auth/verify-email'
+      path: '/auth/verify-email'
+      fullPath: '/auth/verify-email'
+      preLoaderRoute: typeof AuthVerifyEmailRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/auth/reset-password': {
+      id: '/auth/reset-password'
+      path: '/auth/reset-password'
+      fullPath: '/auth/reset-password'
+      preLoaderRoute: typeof AuthResetPasswordRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/auth/register': {
+      id: '/auth/register'
+      path: '/auth/register'
+      fullPath: '/auth/register'
+      preLoaderRoute: typeof AuthRegisterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/auth/login': {
+      id: '/auth/login'
+      path: '/auth/login'
+      fullPath: '/auth/login'
+      preLoaderRoute: typeof AuthLoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/auth/email': {
+      id: '/auth/email'
+      path: '/auth/email'
+      fullPath: '/auth/email'
+      preLoaderRoute: typeof AuthEmailRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/callback/lists/accept-user-invitation': {
+      id: '/callback/lists/accept-user-invitation'
+      path: '/callback/lists/accept-user-invitation'
+      fullPath: '/callback/lists/accept-user-invitation'
+      preLoaderRoute: typeof CallbackListsAcceptUserInvitationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/callback/lists/accept-invite': {
+      id: '/callback/lists/accept-invite'
+      path: '/callback/lists/accept-invite'
+      fullPath: '/callback/lists/accept-invite'
+      preLoaderRoute: typeof CallbackListsAcceptInviteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  UnderConstructionRoute: UnderConstructionRoute,
+  AuthEmailRoute: AuthEmailRoute,
+  AuthLoginRoute: AuthLoginRoute,
+  AuthRegisterRoute: AuthRegisterRoute,
+  AuthResetPasswordRoute: AuthResetPasswordRoute,
+  AuthVerifyEmailRoute: AuthVerifyEmailRoute,
+  AuthWelcomeRoute: AuthWelcomeRoute,
+  CallbackEmailVerificationErrorRoute: CallbackEmailVerificationErrorRoute,
+  CallbackEmailVerificationSuccessRoute: CallbackEmailVerificationSuccessRoute,
+  ListsList_idRoute: ListsList_idRoute,
+  ListsIndexRoute: ListsIndexRoute,
+  TasksIndexRoute: TasksIndexRoute,
+  CallbackListsAcceptInviteRoute: CallbackListsAcceptInviteRoute,
+  CallbackListsAcceptUserInvitationRoute:
+    CallbackListsAcceptUserInvitationRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
