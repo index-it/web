@@ -11,12 +11,14 @@ import TanStackQueryDevtools from '../integrations/tanstack-query/devtools'
 import appCss from '../styles.css?url'
 
 import type { QueryClient } from '@tanstack/react-query'
+import type { IxApiClient } from '#/lib/services/IxApiClient'
 
-interface MyRouterContext {
+interface IxRouterContext {
   queryClient: QueryClient
+  ixApiClient: IxApiClient
 }
 
-export const Route = createRootRouteWithContext<MyRouterContext>()({
+export const Route = createRootRouteWithContext<IxRouterContext>()({
   head: () => ({
     meta: [
       {
@@ -27,7 +29,8 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
         content: 'width=device-width, initial-scale=1',
       },
       {
-        title: 'TanStack Start Starter',
+        title: 'Index web',
+        description: 'The app for any kind of list',
       },
     ],
     links: [

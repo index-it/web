@@ -2,22 +2,28 @@ import { createRouter as createTanStackRouter } from '@tanstack/react-router'
 import { routeTree } from './routeTree.gen'
 
 import { setupRouterSsrQueryIntegration } from '@tanstack/react-router-ssr-query'
-import {
-  getContext,
-} from './integrations/tanstack-query/root-provider'
+import { getQueryClient } from './integrations/tanstack-query/QueryClientContextProvider'
+import { getIxApiClient } from './integrations/index/IxApiClientContextProvider'
 
 export function getRouter() {
-  const context = getContext()
+  const queryClient = getQueryClient()
+  const ixApiClient = getIxApiClient()
 
   const router = createTanStackRouter({
     routeTree,
-    context,
     scrollRestoration: true,
     defaultPreload: 'intent',
     defaultPreloadStaleTime: 0,
+    context: {
+      queryClient,
+      ixApiClient,
+    },
   })
 
-  setupRouterSsrQueryIntegration({ router, queryClient: context.queryClient })
+  setupRouterSsrQueryIntegration({
+    router,
+    queryClient: queryClient,
+  })
 
   return router
 }
